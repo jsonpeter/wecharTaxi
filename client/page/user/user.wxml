@@ -1,0 +1,34 @@
+  <view class="userimg">
+    <image src="{{userInfo.avatarUrl}}"></image>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+  <view  class="flex-wrp userType">
+    <text class="tab" data-type="0" bindtap="userTypeSelect">最新发布</text>
+    <text class="tab" data-type="1" bindtap="userTypeSelect">我的行程</text>
+    <text class="line tab-animate" animation="{{animationData}}"></text>
+  </view>
+  <scroll-view class="order-list" scroll-y  bindscrolltoupper="topRefresh" bindscrolltolower="botLoadmore">
+    <view class="list" wx:for="{{orderList}}" wx:for-index="idx" wx:for-item="itemName">
+     <view class="flex-wrp">
+       <view class="col1 userimg">
+         <image src="{{itemName.img}}"></image>
+       </view>
+       <view class="col2 con">
+         <view class="list-b-top">
+             <text class="gender g-{{itemName.gender}}">{{itemName.nickname}}</text>
+             <text class="datetime">{{itemName.time}}</text>
+         </view>
+           <view class="address">
+               <view>从：<text class="dian green">{{itemName.address1}}</text></view>
+               <view class="m-top"> 到：<text class="dian orange">{{itemName.address2}}</text></view>
+           </view>
+       </view>
+     </view>
+      <view class="list-bot flex-wrp">
+          <view class="col2 voice"><text>语音：</text>
+              <image src="/image/msgline.png"></image>
+          </view>
+          <view class="col1 text-right"><text class="block">价格/人数</text>{{itemName.money}}/{{itemName.person}}</view>
+         </view>
+    </view>
+  </scroll-view>

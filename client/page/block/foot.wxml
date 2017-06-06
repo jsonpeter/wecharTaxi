@@ -1,0 +1,13 @@
+<template name="foot">
+  <view class="flex-wrp ">
+  <navigator class="col1" openType="switchTab" url="/page/component/index" hover-class="none">
+   1
+  </navigator>
+  <navigator class="col1"  openType="switchTab" url="/page/component/index" hover-class="none">
+   2
+  </navigator>
+  <navigator class="col1"  openType="switchTab" url="/page/component/index" hover-class="none">
+    3
+  </navigator>
+  </view>
+</template>

@@ -1,0 +1,89 @@
+<view>
+    <view  class="flex-wrp userType">
+        <text class="tab" data-type="0" bindtap="userTypeSelect">乘客</text>
+        <text class="tab" data-type="1" bindtap="userTypeSelect">车主</text>
+        <text class="line tab-animate" animation="{{animationData}}"></text>
+    </view>
+    <view class="section search-box">
+
+       <input placeholder="正在获取地址..." class="text-input green" auto-focus value="{{address1}}" bindinput="bindKeyInput" />
+       <view><text>{{sugData}}</text></view>
+        <view class="flex-wrp">
+           <text  bindtap="showAddress" class="text-input blue col1">{{address2}}</text>
+           <text  bindtap="showPersonMoney" class="text-input orange col1">{{tmpText}}</text>
+       </view>
+        <view class="flex-wrp">
+       <picker mode="date" class="text-input gray col2" value="{{goData}}"  bindchange="dateChange">
+            <view class="picker">
+                出发时间：{{goData}}
+            </view>
+        </picker>
+            <view class="col1 beizu">
+                <switch bindchange="switchChange" />
+                <text>语音备注</text>
+            </view>
+        </view>
+        <text wx:if="{{usertype==1}}" bindtap="carBrand" class="text-input gray">汽车品牌：{{car}}</text>
+        <button type="primary"  bindtap="btnSendOrder" hover-class="button-hover"> {{btntxt}} </button>
+        <view wx:if="{{voiceshow === true}}">
+           <block wx:if="{{recording === false && playing === false && hasRecord === false}}">
+            <view class="page-body-time">
+                <text class="time-big">{{formatedRecordTime}}</text>
+            </view>
+            <view class="page-body-buttons flex-wrp">
+                <view class="page-body-button" bindtap="startRecord">
+                    <image src="/image/record.png"></image>
+                </view>
+            </view>
+        </block>
+           <block wx:if="{{recording === true}}">
+            <view class="page-body-time">
+                <text class="time-big">{{formatedRecordTime}}</text>
+            </view>
+            <view class="page-body-buttons flex-wrp">
+                <view class="page-body-button" bindtap="stopRecord">
+                    <view class="button-stop-record"></view>
+                </view>
+            </view>
+        </block>
+           <block wx:if="{{hasRecord === true && playing === false}}">
+            <view class="page-body-time">
+                <text class="time-big">{{formatedRecordTime}}</text>
+                <text class="time-small">播放：{{formatedPlayTime}}</text>
+            </view>
+            <view class="page-body-buttons flex-wrp">
+                <view class="page-body-button  col1" bindtap="clear">
+                    <image src="/image/trash.png"></image>
+                </view>
+                <view class="page-body-button  col1" bindtap="playVoice">
+                    <image src="/image/play.png"></image>
+                </view>
+                <view class="page-body-button  col1" bindtap="okVoice">
+                    <image src="/image/ok.png"></image>
+                </view>
+            </view>
+        </block>
+           <block wx:if="{{hasRecord === true && playing === true}}">
+            <view class="page-body-time">
+                <text class="time-big">{{formatedPlayTime}}</text>
+                <text class="time-small">{{formatedRecordTime}}</text>
+            </view>
+            <view class="page-body-buttons flex-wrp">
+                <view class="page-body-button  col1" bindtap="clear">
+                    <image src="/image/trash.png"></image>
+                </view>
+                <view class="page-body-button  col1" bindtap="playVoice">
+                    <image src="/image/play.png"></image>
+                </view>
+                <view class="page-body-button  col1" bindtap="okVoice">
+                    <image src="/image/ok.png"></image>
+                </view>
+            </view>
+        </block>
+        </view>
+    </view>
+</view>
+<view bindtap="pathGo">1111111111</view>
+<view class="map_container">
+        <map id="map" longitude="{{longitude}}" latitude="{{latitude}}"  show-location="true"></map>
+</view>

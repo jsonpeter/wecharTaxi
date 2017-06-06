@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="section search-box page-mobile">
+    <form bindsubmit="formSubmit">
+    <input placeholder="手机号" class="text-input" name="mobile" type="number"  confirm-type="next" value="{{address1}}" />
+    <view class="flex-wrp">
+      <input placeholder="验证码" type="number" name="code"  confirm-type="done" class="text-input col2" value="{{address1}}" />
+      <button type="default"  class="btn btn-code flex-item"  bindtap="sendCode" disabled="{{codeDisabled}}"> {{codeTxt}} </button>
+    </view>
+     <button formType="submit" type="primary" loading="{{loading}}"  disabled="{{disabled}}"> 立即绑定 </button>
+    </form>
+  </view>
+</view>

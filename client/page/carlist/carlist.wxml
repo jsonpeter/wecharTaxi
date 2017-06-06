@@ -1,0 +1,10 @@
+<view class="section carlist">
+    <view class="carword">
+      <label wx:for="{{words}}" data-word="{{item}}"  bindtap="wordSelect" hover-class="text-hover">
+        {{item}}
+      </label>
+    </view>
+  <view class="list" wx:for="{{carbrand}}" wx:for-item="itm">
+    <label  data-type="{{itm.id}}"   data-name="{{itm.name}}" bindtap="carSubmit" hover-class="text-hover">{{itm.name}}</label>
+  </view>
+</view>

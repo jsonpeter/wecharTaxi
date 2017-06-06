@@ -1,0 +1,5 @@
+.carlist{position: relative; padding: 0 5px;}
+.carlist .carword{position:fixed; width: 35px;text-align: center; height: 100%; right: 5px;top:0;}
+.carlist .carword label{display: block; width: 100%; height: 22px; line-height:22px;}
+.carlist .list label{ display: block; width: 100%; padding-left: 10px; height: 35px; line-height: 35px;border-bottom: 1px solid #FFFFFF;background: #FFF9F0;}
+.carlist .list text{ display: block; width: 100%; padding-left: 20px; height: 35px; line-height: 35px;}
